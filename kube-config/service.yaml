@@ -7,5 +7,7 @@ spec:
   selector:
     app: brain-stroke-detector
   ports:
-  - port: 80
-    targetPort: 9696
+  - port: 8080
+    targetPort: 8080
+  - port: 8501
+    targetPort: 8501

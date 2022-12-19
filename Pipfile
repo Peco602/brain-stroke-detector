@@ -8,7 +8,7 @@ tensorflow = "*"
 flask = "*"
 gunicorn = "*"
 streamlit = "*"
-numpy = ">= 1.20.3"
+numpy = "*"
 pillow = "*"
 
 [dev-packages]
