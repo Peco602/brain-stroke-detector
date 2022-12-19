@@ -7,7 +7,9 @@ spec:
   selector:
     app: brain-stroke-detector
   ports:
-  - port: 8080
+  - name: flask
+    port: 8080
     targetPort: 8080
-  - port: 8501
+  - name: streamlit
+    port: 8501
     targetPort: 8501

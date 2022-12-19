@@ -4,15 +4,15 @@ verify_ssl = true
 name = "pypi"
 
 [packages]
-tensorflow = "*"
 flask = "*"
 gunicorn = "*"
 streamlit = "*"
-numpy = "*"
+numpy = ">=1.24.0"
 pillow = "*"
 
 [dev-packages]
 jupyter = "*"
+tensorflow = "*"
 isort = "*"
 black = "*"
 pylint = "*"

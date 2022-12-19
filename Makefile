@@ -45,15 +45,15 @@ kill: ## Kill the stroke detector docker image
 
 kube-setup: # Setup the Kubernetes pre-requisites
 	@curl -Lo ./kind https://kind.sigs.k8s.io/dl/v0.17.0/kind-linux-amd64 && chmod +x ./kind && sudo mv ./kind /usr/local/bin/kind
-	@curl -LO "https://dl.k8s.io/release/$(curl -L -s https://dl.k8s.io/release/stable.txt)/bin/linux/amd64/kubectl" && chmod +x ./kubectl && sudo mv ./kubectl /usr/local/bin/kubectl
+	@curl -LO https://dl.k8s.io/release/v1.26.0/bin/linux/amd64/kubectl && chmod +x ./kubectl && sudo mv ./kubectl /usr/local/bin/kubectl
 	@kind create cluster || kind load docker-image peco602/brain-stroke-detector:latest
 
-kube-deploy: # Deploy the stroke detector over Kubernetes
+kube-deploy: kill # Deploy the stroke detector over Kubernetes
 	@kubectl apply -f ./kube-config/deployment.yaml
 	@kubectl apply -f ./kube-config/service.yaml
-	@kubectl autoscale deployment brain-stroke-detector --name brain-stroke-detector-hpa --cpu-percent=20 --min=1 --max=3
 	@kubectl port-forward service/brain-stroke-detector 8080:8080 &
 	@kubectl port-forward service/brain-stroke-detector 8501:8501 &
+	@kubectl autoscale deployment brain-stroke-detector --name brain-stroke-detector-hpa --cpu-percent=20 --min=1 --max=3
 
 help: ## Show this help
 	@grep -E '^[a-zA-Z_-]+:.*?## .*$$' $(MAKEFILE_LIST) | awk 'BEGIN {FS = ":.*?## "}; {printf "\033[36m%-30s\033[0m %s\n", $$1, $$2}'
