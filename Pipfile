@@ -4,6 +4,7 @@ verify_ssl = true
 name = "pypi"
 
 [packages]
+tensorflow = "*"
 flask = "*"
 gunicorn = "*"
 streamlit = "*"
@@ -12,7 +13,6 @@ pillow = "*"
 
 [dev-packages]
 jupyter = "*"
-tensorflow = "*"
 isort = "*"
 black = "*"
 pylint = "*"

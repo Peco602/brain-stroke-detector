@@ -24,7 +24,7 @@ jobs:
         run: pip install pipenv && pipenv install --dev --system --deploy
 
       - name: Run tests
-        run: make test
+        run: make tests
 
       - name: Run quality checks
         run: make quality-checks

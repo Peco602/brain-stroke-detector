@@ -1,0 +1,27 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: brain-stroke-detector
+spec:
+  selector:
+    matchLabels:
+      app: brain-stroke-detector
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: brain-stroke-detector
+    spec:
+      containers:
+      - name: brain-stroke-detector
+        image: peco602/brain-stroke-detector:latest
+        resources:
+          requests:
+            memory: "64Mi"
+            cpu: "100m"
+          limits:
+            memory: "256Mi"
+            cpu: "0.5"
+        ports:
+        - containerPort: 8080
+        - containerPort: 8501
