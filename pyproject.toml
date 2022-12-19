@@ -1,0 +1,29 @@
+[tool.pylint.messages_control]
+disable = [
+    "invalid-name",
+    "broad-except",
+    "line-too-long",
+    "redefined-outer-name",
+    "too-many-arguments",
+    "dangerous-default-value",
+    "import-error"
+]
+
+[tool.pylint.SIMILARITIES]
+# Minimum lines number of a similarity.
+min-similarity-lines = 10
+# Ignore comments when computing similarities.
+ignore-comments = "yes"
+# Ignore docstrings when computing similarities.
+ignore-docstrings = "yes"
+# Ignore imports when computing similarities.
+ignore-imports = "yes"
+
+[tool.black]
+line-length = 150
+target-version = ['py39']
+skip-string-normalization = true
+
+[tool.isort]
+multi_line_output = 3
+length_sort = true
