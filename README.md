@@ -8,7 +8,7 @@ This repository contains the capstone project for the [ML Zoomcamp](https://gith
 
 ## Context
 
-The objective of this project is to develop a stroke detector for brain CT scans.
+The objective of this project is to develop a stroke detector for brain CT scans. Stroke is the second leading cause of death and the major cause of disability in the world, with an annual mortality of 5.5 million [ref](https://pubmed.ncbi.nlm.nih.gov/29791947/). In 2017, the stroke-related costs was 45.5 billion USD in USA [ref](https://pubmed.ncbi.nlm.nih.gov/33501848/) and 60 billion Eur in Europe, with health care accounting for 27 billion EUR (45%), representing 1.7% of health expenditure [ref](https://pubmed.ncbi.nlm.nih.gov/32232166/).
 
 
 ## Dataset

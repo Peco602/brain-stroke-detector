@@ -22,7 +22,7 @@ quality-checks: ## Perform the code quality checks
 	pylint --recursive=y .
 
 build: ## Build the stroke detector docker image
-	@docker-compose build
+	@docker-compose build --no-cache
 
 publish: tests quality-checks build ## Publish the stroke detector docker image to DockerHub
 	@docker login
