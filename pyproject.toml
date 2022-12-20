@@ -6,7 +6,8 @@ disable = [
     "redefined-outer-name",
     "too-many-arguments",
     "dangerous-default-value",
-    "import-error"
+    "import-error",
+    "no-member"
 ]
 
 [tool.pylint.SIMILARITIES]

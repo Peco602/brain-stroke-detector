@@ -7,9 +7,6 @@ services:
       dockerfile: Dockerfile
     image: peco602/brain-stroke-detector:latest
     container_name: brain-stroke-detector
-    expose:
-      - "8080"
-      - "8501"
     ports:
+      - "8051:8051"
       - "8080:8080"
-      - "8501:8501"

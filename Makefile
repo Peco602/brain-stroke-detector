@@ -22,7 +22,7 @@ quality-checks: ## Perform the code quality checks
 	pylint --recursive=y .
 
 build: ## Build the stroke detector docker image
-	@docker-compose build --no-cache
+	@docker-compose build
 
 publish: tests quality-checks build ## Publish the stroke detector docker image to DockerHub
 	@docker login
@@ -46,7 +46,8 @@ kill: ## Kill the stroke detector docker image
 kube-setup: # Setup the Kubernetes pre-requisites
 	@curl -Lo ./kind https://kind.sigs.k8s.io/dl/v0.17.0/kind-linux-amd64 && chmod +x ./kind && sudo mv ./kind /usr/local/bin/kind
 	@curl -LO https://dl.k8s.io/release/v1.26.0/bin/linux/amd64/kubectl && chmod +x ./kubectl && sudo mv ./kubectl /usr/local/bin/kubectl
-	@kind create cluster || kind load docker-image peco602/brain-stroke-detector:latest
+	@kind delete cluster || kind create cluster
+	@kind load docker-image peco602/brain-stroke-detector:latest
 
 kube-deploy: kill # Deploy the stroke detector over Kubernetes
 	@kubectl apply -f ./kube-config/deployment.yaml

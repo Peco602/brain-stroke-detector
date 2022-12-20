@@ -3,14 +3,13 @@
 import os
 
 import numpy as np
+import tensorflow.lite as tflite
 from PIL import Image
 from flask import Flask, jsonify, request
 
-if os.path.exists('/.dockerenv'):
-    import tflite_runtime.interpreter as tflite
-else:
-    import tensorflow.lite as tflite
-
+# if os.path.exists('/.dockerenv'):
+#     import tflite_runtime.interpreter as tflite
+# else:
 
 EXPERIMENT_NAME = os.getenv('EXPERIMENT_NAME', 'brain-stroke-detector')
 MODEL_PATH = os.getenv('MODEL_PATH', 'data/model.tflite')

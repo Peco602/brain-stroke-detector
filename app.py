@@ -6,9 +6,9 @@ import predict
 
 TITLE = "Brain Stroke Detector"
 STROKE_STYLE = "padding: 20px; background-color: #f44336; color: white; margin-bottom: 15px; text-align: center; text-style: bold; font-size: 24px;"
-STROKE_MESSAGE = "Stroke detected"
+STROKE_MESSAGE = "Stroke"
 HEALTHY_STYLE = "padding: 20px; background-color: #4cbb17; color: white; margin-bottom: 15px; text-align: center; text-style: bold; font-size: 24px;"
-HEALTHY_MESSAGE = "Healty"
+HEALTHY_MESSAGE = "Healthy"
 ERROR_STYLE = "padding: 20px; background-color: #ffc300; color: white; margin-bottom: 15px; text-align: center; text-style: bold; font-size: 24px;"
 
 
