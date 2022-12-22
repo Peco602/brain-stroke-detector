@@ -13,7 +13,7 @@ The objective of this project is to develop a stroke detector for brain CT scans
 
 ## Dataset
 
-The CT scan image dataset can be downloaded from Kaggle at this [link](https://www.kaggle.com/datasets/afridirahman/brain-stroke-ct-image-dataset) and it contains both normal and brains affected by stroke.
+The CT scan image dataset can be downloaded from Kaggle at this [link](https://www.kaggle.com/datasets/afridirahman/brain-stroke-ct-image-dataset) and contains both brains affected by a stroke and healthy ones.
 
 
 ## Deployment
@@ -45,13 +45,13 @@ The service is dockerised and can be easily deployed via the following steps:
 
 3. Pull the Docker images:
 
-    ```
+    ```bash
     $ make pull
     ```
 
 4. Launch the service:
 
-    ```
+    ```bash
     $ make run
     ```
 
@@ -113,7 +113,7 @@ The training can be performed again via the following steps:
     $ make train
     ```
 
-5. Build the container:
+5. Re-build the container with the re-trained model:
 
     ```bash
     $ make build

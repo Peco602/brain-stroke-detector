@@ -13,7 +13,7 @@ setup: ## Setup the development environment
 train: ## Train the model
 	@pipenv run python train.py
 
-tests: ## Run the unit tests
+test: ## Run the unit tests
 	@pytest tests -v -s
 
 quality-checks: ## Perform the code quality checks
@@ -42,19 +42,6 @@ restart: ## Restart the stroke detector docker image
 
 kill: ## Kill the stroke detector docker image
 	@docker-compose down
-
-kube-setup: # Setup the Kubernetes pre-requisites
-	@curl -Lo ./kind https://kind.sigs.k8s.io/dl/v0.17.0/kind-linux-amd64 && chmod +x ./kind && sudo mv ./kind /usr/local/bin/kind
-	@curl -LO https://dl.k8s.io/release/v1.26.0/bin/linux/amd64/kubectl && chmod +x ./kubectl && sudo mv ./kubectl /usr/local/bin/kubectl
-	@kind delete cluster || kind create cluster
-	@kind load docker-image peco602/brain-stroke-detector:latest
-
-kube-deploy: kill # Deploy the stroke detector over Kubernetes
-	@kubectl apply -f ./kube-config/deployment.yaml
-	@kubectl apply -f ./kube-config/service.yaml
-	@kubectl port-forward service/brain-stroke-detector 8080:8080 &
-	@kubectl port-forward service/brain-stroke-detector 8501:8501 &
-	@kubectl autoscale deployment brain-stroke-detector --name brain-stroke-detector-hpa --cpu-percent=20 --min=1 --max=3
 
 help: ## Show this help
 	@grep -E '^[a-zA-Z_-]+:.*?## .*$$' $(MAKEFILE_LIST) | awk 'BEGIN {FS = ":.*?## "}; {printf "\033[36m%-30s\033[0m %s\n", $$1, $$2}'

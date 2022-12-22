@@ -9,10 +9,10 @@ gunicorn = "*"
 streamlit = "*"
 numpy = ">=1.24.0"
 pillow = "*"
-tensorflow = "*"
 
 [dev-packages]
 jupyter = "*"
+tensorflow = "*"
 isort = "*"
 black = "*"
 pylint = "*"

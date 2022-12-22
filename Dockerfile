@@ -10,8 +10,8 @@ COPY ["data/model.tflite", "./data/"]
 
 COPY [ "Pipfile", "Pipfile.lock", "*.py", "start.sh", "./" ]
 
-#RUN pip install https://github.com/alexeygrigorev/tflite-aws-lambda/raw/main/tflite/tflite_runtime-2.7.0-cp39-cp39-linux_x86_64.whl && \
-RUN    pipenv install --system --deploy
+RUN pip install https://github.com/alexeygrigorev/tflite-aws-lambda/raw/main/tflite/tflite_runtime-2.7.0-cp39-cp39-linux_x86_64.whl && \
+    pipenv install --system --deploy
 
 EXPOSE 8051
 EXPOSE 8080

@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Starting Flask
-gunicorn --bind=127.0.0.1:8080 predict:app --daemon
+gunicorn --bind=0.0.0.0:8080 predict:app --daemon
 
 # Starting Streamlit app
-streamlit run app.py --server.address 127.0.0.1 --server.port 8051
+streamlit run app.py --server.address 0.0.0.0 --server.port 8051
