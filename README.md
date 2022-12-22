@@ -3,7 +3,7 @@
 
 ## Objective
 
-This repository contains the capstone project for the [ML Zoomcamp](https://github.com/alexeygrigorev/mlbookcamp-code) course provided by [DataTalks.Club](https://datatalks.club/).
+This repository contains the capstone project for the [ML Zoomcamp](https://github.com/alexeygrigorev/mlbookcamp-code) course provided by [DataTalks.Club](https://datatalks.club/). The brain stroke detector is currently available online at [http://stroke.peco602.com/](http://stroke.peco602.com/).
 
 
 ## Context
